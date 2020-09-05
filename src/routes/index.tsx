@@ -1,6 +1,7 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import AuthProvider from '../context/AuthContext';
+import AddTimetable from '../pages/AddTimetable';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import PrivateRoute from './PrivateRoute';
@@ -12,6 +13,7 @@ const Routes: React.FC = () => {
       <Router>
         <Switch>
           <PrivateRoute path="/" component={Home} exact/>
+          <PrivateRoute path="/add" component={AddTimetable} exact/>
           <Route path="/login" exact>
             <Login/>
           </Route>

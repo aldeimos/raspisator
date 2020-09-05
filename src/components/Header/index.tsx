@@ -1,25 +1,30 @@
 import React from 'react'
 import {useActions} from '../../hooks/bindActions';
 import {globalsActions} from '../../store/globals';
-import Button from '../Button';
+import {RouteComponentProps, withRouter} from 'react-router';
 
+import Button from '../Button';
 import LinklessButton from '../LinklessButton';
 
 import './index.scss';
 import Icon28AddCircleOutline from '@vkontakte/icons/dist/28/add_circle_outline';
 
-const Header: React.FC = () => {
+const Header: React.FC<RouteComponentProps> = ({history}) => {
   const { signout } = useActions(globalsActions);
 
   const handleSignOut = async () => {
     await signout();
   };
 
+  const handleRoute = () => {
+    history.push('/add');
+  };
+
   return (
     <header className="header">
       <div className="container">
         <LinklessButton
-          handler={() => console.log('e')}
+          handler={handleRoute}
           text="Добавить расписание"
         >
           <Icon28AddCircleOutline
@@ -36,4 +41,4 @@ const Header: React.FC = () => {
   )
 };
 
-export default Header;
+export default withRouter(Header);

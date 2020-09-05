@@ -1,0 +1,19 @@
+.navigation {
+
+  &__list {
+    display: flex;
+    align-items: center;
+  }
+
+  &__link {
+    padding: 0 10px;
+
+    font-family: 'IBM Medium', Roboto, sans-serif;
+    color: var(--accent);
+    background-color: transparent;
+    border: none;
+    transition: all .2s;
+    cursor: pointer;
+    text-decoration: none;
+  }
+}

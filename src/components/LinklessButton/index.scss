@@ -1,0 +1,25 @@
+.link-button {
+  display: flex;
+  align-items: center;
+  font-size: var(--fs-button);
+  font-family: 'IBM Medium', Roboto, sans-serif;
+  color: var(--accent);
+
+  background-color: transparent;
+  border: none;
+  transition: all .2s;
+  cursor: pointer;
+
+  .Icon {
+    margin-right: 8px;
+  }
+
+  &:hover {
+    color: var(--accent-dark);
+  }
+
+  &:focus {
+    outline: none;
+    color: var(--accent-dark);
+  }
+}

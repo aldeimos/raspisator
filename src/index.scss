@@ -1,0 +1,70 @@
+@font-face {
+  font-family: 'IBM Light';
+  font-weight: 300;
+  font-style: normal;
+  src: url('./assets/fonts/IBMPlexMono-Light.ttf');
+}
+
+@font-face {
+  font-family: 'IBM Regular';
+  font-weight: 400;
+  font-style: normal;
+  src: url('./assets/fonts/IBMPlexMono-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'IBM Medium';
+  font-weight: 500;
+  font-style: normal;
+  src: url('./assets/fonts/IBMPlexMono-Medium.ttf');
+}
+
+:root {
+  --white: #f9f7f7;
+  --accent: #3f72af;
+  --accent-light: #dbe2ef;
+  --accent-dark: #112d4e;
+  --error: #E64646;
+  --success: #4BB34B;
+
+  --fs-title: 24px;
+  --fs-text: 18px;
+  --fs-button: 16px;
+  --fs-subtext: 11px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  width: 960px;
+  margin: 0 auto;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.title {
+  margin: 2rem 0 0 0;
+  font-size: var(--fs-title);
+  color: var(--accent);
+  text-align: center;
+}
+
+@media all and (max-width: 767px) {
+  :root {
+    --fs-title: 36px;
+    --fs-text: 18px;
+    --fs-subtext: 12px;
+  }
+}
+
+
+
+

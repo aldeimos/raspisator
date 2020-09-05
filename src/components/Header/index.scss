@@ -1,0 +1,21 @@
+.header {
+  height: 54px;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+  }
+
+  .link-button {
+
+    &:not(:first-child) {
+      margin-left: 20px;
+    }
+  }
+
+  .btn {
+    margin-left: 40px;
+  }
+}

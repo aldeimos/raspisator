@@ -1,0 +1,27 @@
+.form-field {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    margin-bottom: 10px;
+    font-size: var(--fs-text);
+    font-family: 'IBM Regular', Roboto, sans-serif;
+
+    color: var(--onyx);
+  }
+
+  input {
+    padding: 10px 5px;
+
+    border: 2px solid var(--accent);
+    transition: all .2s;
+
+    &:focus {
+      outline: none;
+      border: 2px solid transparent;
+      border-bottom: 2px solid var(--accent);
+      box-shadow: 2px 2px 2px 2px var(--accent-dark);
+      transition: all .2s;
+    }
+  }
+}

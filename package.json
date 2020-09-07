@@ -14,6 +14,7 @@
     "@types/react-router-dom": "^5.1.5",
     "@vkontakte/icons": "^1.39.1",
     "firebase": "^7.19.1",
+    "moment": "^2.27.0",
     "node-sass": "^4.14.1",
     "normalize.css": "^8.0.1",
     "react": "^16.13.1",

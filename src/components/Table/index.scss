@@ -1,0 +1,32 @@
+.table {
+
+  &__head {
+    display: flex;
+  }
+
+  .table-header {
+
+    &:first-child {
+      border-radius: 10px 0 0 0;
+    }
+
+    &:last-child {
+      border-right: none;
+      border-radius: 0 10px 0 0;
+    }
+  }
+
+  &__content {
+    margin-bottom: 20px;
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+
+    .btn {
+      margin-right: 12px;
+    }
+  }
+}

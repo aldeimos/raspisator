@@ -1,0 +1,17 @@
+.table-cell {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  max-width: 12.5%;
+  min-width: 12.5%;
+  min-height: 50px;
+
+  padding: 10px 10px 10px 15px;
+
+  font-family: 'IBM Medium', sans-serif;
+  font-size: var(--fs-button);
+
+  border-right: 2px solid var(--accent-dark);
+};
+
+

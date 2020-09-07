@@ -1,0 +1,14 @@
+.table-header {
+  box-sizing: border-box;
+  max-width: 12.5%;
+  min-width: 12.5%;
+  padding: 15px 0;
+
+  font-family: 'IBM Medium', sans-serif;
+  font-size: var(--fs-button);
+  color: var(--white);
+  text-align: center;
+
+  background-color: var(--accent-dark);
+  border-right: 2px solid var(--white);
+}

@@ -22,3 +22,20 @@ export const getUserSchedules = (uid: string):ThunkType => {
     }
   }
 };
+
+export const setTimetableSettings = () => {
+  return (dispatch: (arg0: object) => object, getState: () => {globalsReducer: {currentUser: {uid: string}}}) => {
+    const uid = getState().globalsReducer.currentUser.uid;
+    dispatch({
+      type: types.SET_TIMETABLE_SETTINGS,
+      uid,
+    })
+  }
+};
+
+export const handleAddEmployeeSelect = (payload: boolean) => {
+  return {
+    type: types.HANDLE_ADD_EMPLOYEE_SELECT,
+    payload
+  }
+};

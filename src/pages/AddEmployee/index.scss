@@ -1,0 +1,18 @@
+.add-ee {
+
+  &__form {
+    width: 300px;
+    margin: 20px auto;
+
+    .form-field {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__form-error {
+      margin-bottom: 14px;
+
+      font-family: 'IBM Medium', Roboto, sans-serif;
+      color: var(--error);
+  }
+}

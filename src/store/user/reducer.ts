@@ -7,6 +7,13 @@ const initialState: types.UserState = {
     period: [],
     staff: {}
   },
+  newEmployee: {
+    email: '',
+    name: '',
+    password: ''
+  },
+  isLoading: false,
+  errorMessage: '',
   addEmployeeSelect: false
 };
 
@@ -35,6 +42,33 @@ const userReducer = (state = initialState, action: types.UserActionTypes):types.
           period: acc,
           staff: {...yourself}
         }
+      };
+    case types.SET_NEW_EMPLOYEE:
+      return {
+        ...state,
+        newEmployee: {
+          ...state.newEmployee,
+          [action.name]: action.value
+        }
+      };
+    case types.ADD_NEW_EMPLOYEE_SUCCESS:
+      return {
+        ...state,
+        newEmployee: {
+          email: '',
+          password: '',
+          name: ''
+        }
+      };
+    case types.ADD_NEW_EMPLOYEE_ERROR:
+      return {
+        ...state,
+        errorMessage: action.errorMessage
+      };
+    case types.ADD_NEW_EMPLOYEE_STARTED:
+      return {
+        ...state,
+        isLoading: action.flag
       };
     case types.HANDLE_ADD_EMPLOYEE_SELECT:
       return {

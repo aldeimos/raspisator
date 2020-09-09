@@ -16,16 +16,26 @@ const Header: React.FC<RouteComponentProps> = ({history}) => {
     await signout();
   };
 
-  const handleRoute = () => {
-    history.push('/add');
+  const handleRoute = (route: string) => {
+    history.push(route);
   };
 
   return (
     <header className="header">
       <div className="container">
         <LinklessButton
-          handler={handleRoute}
+          handler={() => handleRoute('/add-timetable')}
           text="Добавить расписание"
+        >
+          <Icon28AddCircleOutline
+            width={24}
+            height={24}
+          />
+        </LinklessButton>
+
+        <LinklessButton
+          handler={() => handleRoute('/add-employee')}
+          text="Добавить сотрудника"
         >
           <Icon28AddCircleOutline
             width={24}

@@ -44,6 +44,11 @@ const globalsReducer = (state = initialState, action: GlobalsActionTypes): Globa
         signinError: false,
         errorMessage: ''
       };
+    case types.SIGN_OUT:
+      return {
+        ...state,
+        currentUser: null
+      };
     case types.SET_LOGIN_VALUES:
       return {
         ...state,

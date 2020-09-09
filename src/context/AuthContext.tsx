@@ -19,17 +19,20 @@ const AuthProvider: React.ElementType = ({ children }: AuthContextProps) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    app.auth().onAuthStateChanged((user) => {
+    if (!currentUser) {
+      const listener = app.auth().onAuthStateChanged((user) => {
 
-      if (user) {
-        setCurrentUser({email: user.email, uid: user.uid});
-      } else {
-        setCurrentUser(null);
-      }
+        if (user) {
+          setCurrentUser({email: user.email, uid: user.uid});
+          listener();
+        } else {
+          setCurrentUser(null);
+        }
 
-      setLoading(false);
-    });
-  }, [setCurrentUser]);
+        setLoading(false);
+      });
+    }
+  }, [currentUser, setCurrentUser]);
 
   if (loading) {
     return <Loader/>

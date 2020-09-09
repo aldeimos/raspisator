@@ -33,6 +33,52 @@ export const setTimetableSettings = () => {
   }
 };
 
+export const setNewEmployee = (name: string, value: string) => {
+  return {
+    type: types.SET_NEW_EMPLOYEE,
+    name,
+    value
+  }
+};
+
+export const addNewEmployee = ():ThunkType => {
+  return async (dispatch, getState) => {
+    const newEmployee = getState().userReducer.newEmployee;
+
+    try {
+
+      dispatch({
+        type: types.ADD_NEW_EMPLOYEE_STARTED,
+        flag: true
+      });
+
+      await api.addEmployee(newEmployee);
+
+      dispatch({
+        type: types.ADD_NEW_EMPLOYEE_SUCCESS,
+      });
+
+      dispatch({
+        type: types.ADD_NEW_EMPLOYEE_STARTED,
+        flag: false
+      });
+
+    } catch (e) {
+
+      dispatch({
+        type: types.ADD_NEW_EMPLOYEE_ERROR,
+        errorMessage: e.message
+      });
+
+      dispatch({
+        type: types.ADD_NEW_EMPLOYEE_STARTED,
+        flag: false
+      });
+
+    }
+  }
+};
+
 export const handleAddEmployeeSelect = (payload: boolean) => {
   return {
     type: types.HANDLE_ADD_EMPLOYEE_SELECT,

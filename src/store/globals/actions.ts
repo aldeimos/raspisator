@@ -71,10 +71,18 @@ export const resetSignUpStatus = () => {
   }
 };
 
-export const setCurrentUser = (user: object) => {
+export const setCurrentUser = (user: {uid: string, email: string}) => {
+
+  if (!user) {
+    return {
+      type: types.SIGN_OUT
+    }
+  }
+
   return {
     type: types.SET_CURRENT_USER,
-    payload: user
+    uid: user.uid,
+    email: user.email
   }
 };
 

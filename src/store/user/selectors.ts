@@ -7,3 +7,4 @@ export const addEmployeeSelect = (state:RootState) => everything(state).addEmplo
 export const newEmployee = (state: RootState) => everything(state).newEmployee;
 export const errorMessage = (state: RootState) => everything(state).errorMessage;
 export const isLoading = (state: RootState) => everything(state).isLoading;
+export const staff = (state:RootState) => everything(state).staff;

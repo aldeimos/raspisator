@@ -12,6 +12,7 @@ const initialState: types.UserState = {
     name: '',
     password: ''
   },
+  staff: [],
   isLoading: false,
   errorMessage: '',
   addEmployeeSelect: false
@@ -43,6 +44,12 @@ const userReducer = (state = initialState, action: types.UserActionTypes):types.
           staff: {...yourself}
         }
       };
+    case types.GET_STAFF:
+      console.log(action.uid);
+      return {
+        ...state,
+        staff: action.payload.filter((employee) => employee.uid !== action.uid)
+      };
     case types.SET_NEW_EMPLOYEE:
       return {
         ...state,
@@ -70,10 +77,16 @@ const userReducer = (state = initialState, action: types.UserActionTypes):types.
         ...state,
         isLoading: action.flag
       };
-    case types.HANDLE_ADD_EMPLOYEE_SELECT:
+    case types.HANDLE_ADD_EMPLOYEE:
+
+      const uniqueId = Math.random().toString(32).substr(2, 12);
+
       return {
         ...state,
-        addEmployeeSelect: action.payload
+        newTimetable: {
+          ...state.newTimetable,
+          staff: {[uniqueId]: {name: null, timetable: Array(7).fill(null)}, ...state.newTimetable.staff}
+        }
       };
     default: return state;
   }

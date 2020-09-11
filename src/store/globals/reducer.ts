@@ -60,7 +60,7 @@ const globalsReducer = (state = initialState, action: GlobalsActionTypes): Globa
     case types.SET_CURRENT_USER:
       return {
         ...state,
-        currentUser: action.payload
+        currentUser: {uid: action.uid, email: action.email}
       };
     default: return state;
   }

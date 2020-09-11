@@ -5,4 +5,10 @@
 
     border-bottom: 2px solid var(--accent-dark);
   }
+
+  .table-cell {
+    &:first-child {
+      border-left: 2px solid var(--accent-dark);
+    }
+  }
 }

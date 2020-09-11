@@ -79,9 +79,28 @@ export const addNewEmployee = ():ThunkType => {
   }
 };
 
-export const handleAddEmployeeSelect = (payload: boolean) => {
+export const getStaff = ():ThunkType => {
+  return async (dispatch, getState) => {
+    try {
+      const currentUser = getState().globalsReducer.currentUser;
+      const result = await api.getStaffList();
+
+      if (currentUser && result) {
+        dispatch({
+          type: types.GET_STAFF,
+          uid: currentUser.uid,
+          payload: result.docs.map(item => item.data())
+        })
+      }
+
+    } catch (e) {
+      console.log(e)
+    }
+  }
+};
+
+export const handleAddEmployee = () => {
   return {
-    type: types.HANDLE_ADD_EMPLOYEE_SELECT,
-    payload
+    type: types.HANDLE_ADD_EMPLOYEE,
   }
 };

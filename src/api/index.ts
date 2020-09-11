@@ -50,3 +50,7 @@ export const addEmployee = async (newEmployee: { email: string, password: string
       });
   }
 };
+
+export const getStaffList = async () => {
+  return await db.collection('users').get();
+};

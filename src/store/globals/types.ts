@@ -16,7 +16,10 @@ export interface GlobalsState {
     email: string,
     password: string
   },
-  currentUser: null | object,
+  currentUser: {
+    uid: string,
+    email: string,
+  } | null,
   signinSuccess: boolean,
   signinError: boolean,
   signinStarted: boolean,
@@ -54,7 +57,8 @@ interface SignOutAction {
 
 interface SetCurrentUserAction {
   type: typeof SET_CURRENT_USER
-  payload: object
+  uid: string,
+  email: string
 }
 
 export type GlobalsActionTypes = SetLoginValuesAction | SignOutAction | SignInRequestSuccess

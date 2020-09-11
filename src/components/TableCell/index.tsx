@@ -1,17 +1,49 @@
 import React from 'react';
+import {DocumentData} from '@firebase/firestore-types';
 
 import './index.scss';
 
 interface TableCellProps {
   cellValue: string,
-  employee?: boolean
+  employee?: boolean,
+  staffId?: string,
+  currentUserUid?: string | undefined | null,
+  staffList?: {name: string}[] | (DocumentData[]|{name:string}[])
 }
 
-const TableCell:React.FC<TableCellProps> = ({cellValue, employee = false}) => {
+const TableCell:React.FC<TableCellProps> = ({cellValue, currentUserUid, staffList, staffId, employee = false,}) => {
+
+  console.log(staffList);
+
+  const renderStaffSelect = () => {
+    if (currentUserUid !== staffId) {
+      return (
+        <select
+          name="member"
+          id="member"
+          defaultValue=""
+        >
+          <option
+            value=""
+            disabled
+            hidden
+          >
+            Выбрать
+          </option>
+          {staffList && (staffList as Array<{name: string}>).map((employee) => <option>{employee.name}</option>)}
+        </select>
+      )
+    }
+
+    return 'Вы';
+  };
+
+  renderStaffSelect();
+
   return (
     <div className="table-cell">
       {employee ?
-        cellValue :
+        renderStaffSelect() :
         <select
           name="period"
           id="period"
